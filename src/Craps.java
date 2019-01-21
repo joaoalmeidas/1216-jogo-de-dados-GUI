@@ -13,29 +13,31 @@ public class Craps {
 	private static final int BOX_CARS = 12;
 	
 	private int meuPonto = 0;
-	private Status statusDoJogo = Status.CONTINUA;
+	private Status statusDoJogo;
 	private int somaDosDados;
+	private int dado1;
+	private int dado2;
 
-
-	public Craps(){
+	
+	public void iniciaJogo(){
 		
-		somaDosDados = jogaDados();
+		setSomaDosDados(jogaDados());
 		
-		switch(somaDosDados) {
+		switch(getSomaDosDados()) {
 		
 			case SEVEN:
 			case YO_LEVEN:
-				statusDoJogo = Status.VENCEU;
+				setStatusDoJogo(Status.VENCEU);
 				break;
 			case SNAKE_EYES:
 			case TREY:
 			case BOX_CARS:
-				statusDoJogo = Status.PERDEU;
+				setStatusDoJogo(Status.PERDEU);
 				break;
 			default:
-				statusDoJogo = Status.CONTINUA;
-				meuPonto = somaDosDados;
-				System.out.printf("A pontuação é %d%n", meuPonto);
+				setStatusDoJogo(Status.CONTINUA);
+				setMeuPonto(getSomaDosDados());
+				
 		}
 	}
 		
@@ -74,17 +76,56 @@ public class Craps {
 		return aleatorio;
 	}
 	
+	
 
-	public static int[] jogaDados() {
-		
-		int dado1 = 1 + aleatorio.nextInt(6);
-		int dado2 = 1 + aleatorio.nextInt(6);
-		int soma = dado1 + dado2;
-		
-		int[] dados = {dado1, dado2, soma};
-		
-		
-		return dados;
+	public int getDado1() {
+		return dado1;
 	}
 
+
+
+	public void setDado1(int dado1) {
+		this.dado1 = dado1;
+	}
+
+
+
+	public int getDado2() {
+		return dado2;
+	}
+
+
+
+	public void setDado2(int dado2) {
+		this.dado2 = dado2;
+	}
+
+
+
+	public int jogaDados() {
+		
+		setDado1( 1 + aleatorio.nextInt(6));
+		setDado2( 1 + aleatorio.nextInt(6));
+		setSomaDosDados(getDado1() + getDado2());
+		
+		return getSomaDosDados();
+	}
+	
+	public Status verificaJogo() {
+		
+		if(getSomaDosDados() == getMeuPonto()) {
+			
+			return Status.VENCEU;
+			
+		}else if(getSomaDosDados() == SEVEN) {
+			
+			return Status.PERDEU;
+			
+		}else {
+			
+			return Status.CONTINUA;
+			
+		}
+		
+	}
 }
