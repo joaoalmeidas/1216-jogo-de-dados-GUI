@@ -108,6 +108,24 @@ public class CrapsFrame extends JFrame {
 							
 							if(craps.getStatusDoJogo() == Status.PERDEU) {
 								
+								labelStatus.setText(String.format("VOCÊ perdeu!!! Você tirou um %d na primeira jogada.", craps.getSomaDosDados()));
+								botaoJogarDados.setVisible(false);
+								botaoJogarNovamente.setVisible(true);
+								
+							}else if(craps.getStatusDoJogo() == Status.VENCEU) {
+								
+								labelStatus.setText(String.format("VOCÊ VENCEU!!! Você tirou um %d na primeira jogada.", craps.getSomaDosDados()));
+								botaoJogarDados.setVisible(false);
+								botaoJogarNovamente.setVisible(true);
+								
+							}else if(craps.getStatusDoJogo() == Status.CONTINUA) {
+								
+								textoPontuacao.setVisible(true);
+								textoPontuacao.setText(Integer.toString(craps.getMeuPonto()));
+								labelPontuacao.setVisible(true);
+								
+								
+								labelStatus.setText(String.format("A sua pontuação vencedora é %d", craps.getMeuPonto()));
 								
 							}
 							
