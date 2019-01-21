@@ -1,5 +1,7 @@
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -77,7 +79,32 @@ public class CrapsFrame extends JFrame {
 		panelInformacoes.add(labelPontuacao);
 		panelInformacoes.add(textoPontuacao);
 		
-		//botaoJogarDados.addActionListener(arg0);
+		botaoJogarDados.setVisible(false);
+		botaoJogarNovamente.setVisible(false);
+		panelStatus.setVisible(false);
+		panelInformacoes.setVisible(false);
+		
+		botaoIniciar.addActionListener(
+				
+					new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent arg0) {
+							
+							Craps craps = new Craps();
+			
+							botaoIniciar.setVisible(false);
+							botaoJogarDados.setVisible(true);
+							panelStatus.setVisible(true);
+							panelInformacoes.setVisible(true);
+							
+							
+							
+						}
+						
+					}
+					
+				);
 		
 	}
 
