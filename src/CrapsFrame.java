@@ -11,6 +11,7 @@ public class CrapsFrame extends JFrame {
 	
 	private final JPanel panelBotoes;
 	private final JPanel panelInformacoes;	
+	private final JPanel panelStatus;	
 	
 	private final JButton botaoJogarDados;
 	private final JButton botaoIniciar;
@@ -21,6 +22,7 @@ public class CrapsFrame extends JFrame {
 	private final JLabel labelDadoDois;
 	private final JLabel labelSoma;
 	private final JLabel labelPontuacao;
+	private final JLabel labelStatus;
 	
 	private final JTextField textoDadoUm;
 	private final JTextField textoDadoDois;
@@ -31,11 +33,15 @@ public class CrapsFrame extends JFrame {
 	public CrapsFrame() {
 		
 		super("Jogo de Craps");
-		setLayout(new GridLayout(2, 1));
+		setLayout(new GridLayout(3, 1));
 		
 		panelBotoes = new JPanel();
 		panelBotoes.setLayout(new FlowLayout());
 		add(panelBotoes);
+		
+		panelStatus = new JPanel();
+		panelStatus.setLayout(new FlowLayout());
+		add(panelStatus);
 		
 		panelInformacoes = new JPanel();
 		panelInformacoes.setLayout(new GridLayout(4, 2));
@@ -48,6 +54,9 @@ public class CrapsFrame extends JFrame {
 		panelBotoes.add(botaoIniciar);
 		panelBotoes.add(botaoJogarDados);
 		panelBotoes.add(botaoJogarNovamente);
+		
+		labelStatus = new JLabel("Teste");
+		panelStatus.add(labelStatus);
 		
 		labelDadoUm = new JLabel("Dado 1");
 		labelDadoDois = new JLabel("Dado 2");
