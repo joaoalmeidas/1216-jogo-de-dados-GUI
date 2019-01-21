@@ -97,11 +97,19 @@ public class CrapsFrame extends JFrame {
 							botaoJogarDados.setVisible(true);
 							panelStatus.setVisible(true);
 							panelInformacoes.setVisible(true);
+							textoPontuacao.setVisible(false);
+							labelPontuacao.setVisible(false);
 							
+							craps.iniciaJogo();
 							
-							textoDadoUm.setText(Integer.toString(craps.joga));
-							textoPontuacao.setText(Integer.toString(craps.getSomaDosDados()));
-							System.out.print(craps.getSomaDosDados());
+							textoDadoUm.setText(Integer.toString(craps.getDado1()));
+							textoDadoDois.setText(Integer.toString(craps.getDado2()));
+							textoSoma.setText(Integer.toString(craps.getSomaDosDados()));
+							
+							if(craps.getStatusDoJogo() == Status.PERDEU) {
+								
+								
+							}
 							
 							
 							

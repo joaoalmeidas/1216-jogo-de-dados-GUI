@@ -4,7 +4,7 @@ public class Craps {
 	
 	private static final SecureRandom aleatorio = new SecureRandom();
 	
-	private enum Status{CONTINUA, VENCEU, PERDEU};
+	//private enum Status{CONTINUA, VENCEU, PERDEU};
 	
 	private static final int SNAKE_EYES = 2;
 	private static final int TREY = 3;
