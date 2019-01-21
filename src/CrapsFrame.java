@@ -84,6 +84,8 @@ public class CrapsFrame extends JFrame {
 		panelStatus.setVisible(false);
 		panelInformacoes.setVisible(false);
 		
+		Craps craps = new Craps();
+		
 		botaoIniciar.addActionListener(
 				
 					new ActionListener() {
@@ -91,8 +93,7 @@ public class CrapsFrame extends JFrame {
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							
-							Craps craps = new Craps();
-			
+							
 							botaoIniciar.setVisible(false);
 							botaoJogarDados.setVisible(true);
 							panelStatus.setVisible(true);
@@ -136,6 +137,69 @@ public class CrapsFrame extends JFrame {
 					}
 					
 				);
+		
+		botaoJogarDados.addActionListener(
+				
+				new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						
+						craps.jogaDados();
+						
+						textoDadoUm.setText(Integer.toString(craps.getDado1()));
+						textoDadoDois.setText(Integer.toString(craps.getDado2()));
+						textoSoma.setText(Integer.toString(craps.getSomaDosDados()));
+						
+						if(craps.verificaJogo() == Status.VENCEU) {
+							
+							botaoJogarNovamente.setVisible(true);
+							botaoJogarDados.setVisible(false);
+							labelStatus.setText(String.format("VOCÊ VENCEU!!! Você tirou um %d", craps.getSomaDosDados()));
+							
+						}else if(craps.verificaJogo() == Status.PERDEU) {
+							
+							botaoJogarNovamente.setVisible(true);
+							botaoJogarDados.setVisible(false);
+							labelStatus.setText(String.format("VOCÊ PERDEU!!! Você tirou um %d", craps.getSomaDosDados()));
+							
+						}else if(craps.verificaJogo() == Status.CONTINUA) {
+							
+							labelStatus.setText(String.format("Você tirou um %d, Você precisa de um %d", craps.getSomaDosDados(), 
+									craps.getMeuPonto()));
+							
+						}
+						
+					}
+					
+					
+					
+				}
+				
+		);
+		
+		botaoJogarNovamente.addActionListener(
+				
+				new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						botaoIniciar.setVisible(true);
+						botaoJogarNovamente.setVisible(false);
+						botaoJogarDados.setVisible(false);
+						
+						panelInformacoes.setVisible(false);
+						panelStatus.setVisible(false);
+						
+					}
+					
+					
+					
+				}
+				
+		);
+		
 		
 	}
 

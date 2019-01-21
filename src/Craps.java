@@ -108,6 +108,7 @@ public class Craps {
 		setDado2( 1 + aleatorio.nextInt(6));
 		setSomaDosDados(getDado1() + getDado2());
 		
+		
 		return getSomaDosDados();
 	}
 	
@@ -115,14 +116,17 @@ public class Craps {
 		
 		if(getSomaDosDados() == getMeuPonto()) {
 			
+			setStatusDoJogo(Status.VENCEU);
 			return Status.VENCEU;
 			
 		}else if(getSomaDosDados() == SEVEN) {
 			
+			setStatusDoJogo(Status.PERDEU);
 			return Status.PERDEU;
 			
 		}else {
 			
+			setStatusDoJogo(Status.CONTINUA);
 			return Status.CONTINUA;
 			
 		}
