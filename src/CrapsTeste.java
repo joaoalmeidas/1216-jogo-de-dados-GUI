@@ -6,7 +6,7 @@ public class CrapsTeste {
 		
 		CrapsFrame craps = new CrapsFrame();
 		craps.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		craps.setSize(200, 200);
+		craps.setSize(400, 400);
 		craps.setVisible(true);
 		
 	}
