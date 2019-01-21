@@ -75,13 +75,16 @@ public class Craps {
 	}
 	
 
-	public static int jogaDados() {
+	public static int[] jogaDados() {
 		
 		int dado1 = 1 + aleatorio.nextInt(6);
 		int dado2 = 1 + aleatorio.nextInt(6);
 		int soma = dado1 + dado2;
 		
-		return soma;
+		int[] dados = {dado1, dado2, soma};
+		
+		
+		return dados;
 	}
 
 }

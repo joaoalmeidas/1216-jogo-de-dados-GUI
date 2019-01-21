@@ -98,7 +98,8 @@ public class CrapsFrame extends JFrame {
 							panelStatus.setVisible(true);
 							panelInformacoes.setVisible(true);
 							
-							
+							textoPontuacao.setText(Integer.toString(craps.getSomaDosDados()));
+							System.out.print(craps.getSomaDosDados());
 							
 						}
 						
