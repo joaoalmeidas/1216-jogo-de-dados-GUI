@@ -77,6 +77,8 @@ public class CrapsFrame extends JFrame {
 		panelInformacoes.add(labelPontuacao);
 		panelInformacoes.add(textoPontuacao);
 		
+		//botaoJogarDados.addActionListener(arg0);
+		
 	}
 
 }

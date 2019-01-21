@@ -11,14 +11,15 @@ public class Craps {
 	private static final int SEVEN = 7;
 	private static final int YO_LEVEN = 11;
 	private static final int BOX_CARS = 12;
+	
+	private int meuPonto = 0;
+	private Status statusDoJogo = Status.CONTINUA;
+	private int somaDosDados;
 
-	public static void main(String[] args) {
+
+	public Craps(){
 		
-		
-		int meuPonto = 0;
-		Status statusDoJogo;
-		
-		int somaDosDados = jogaDados();
+		somaDosDados = jogaDados();
 		
 		switch(somaDosDados) {
 		
@@ -36,39 +37,49 @@ public class Craps {
 				meuPonto = somaDosDados;
 				System.out.printf("A pontuação é %d%n", meuPonto);
 		}
-		
-		while(statusDoJogo == statusDoJogo.CONTINUA) {
-			
-			somaDosDados = jogaDados();
-			
-			if(somaDosDados == meuPonto) {
-				
-				statusDoJogo = Status.VENCEU;
-				
-			}else if(somaDosDados == SEVEN) {
-				
-				statusDoJogo = Status.PERDEU;
-				
-			}
-			
-		}
-		
-		if(statusDoJogo == Status.VENCEU) {
-			System.out.println("O Jogador venceu!");
-		}else {
-			System.out.println("O Jogador perdeu!");
-		}
+	}
 		
 
+	
+	public int getMeuPonto() {
+		return meuPonto;
+	}
+
+
+	public void setMeuPonto(int meuPonto) {
+		this.meuPonto = meuPonto;
+	}
+
+
+	public Status getStatusDoJogo() {
+		return statusDoJogo;
+	}
+
+	public void setStatusDoJogo(Status statusDoJogo) {
+		this.statusDoJogo = statusDoJogo;
+	}
+
+
+	public int getSomaDosDados() {
+		return somaDosDados;
+	}
+
+
+	public void setSomaDosDados(int somaDosDados) {
+		this.somaDosDados = somaDosDados;
+	}
+
+
+	public static SecureRandom getAleatorio() {
+		return aleatorio;
 	}
 	
+
 	public static int jogaDados() {
 		
 		int dado1 = 1 + aleatorio.nextInt(6);
 		int dado2 = 1 + aleatorio.nextInt(6);
 		int soma = dado1 + dado2;
-		
-		System.out.printf("O Jogador tirou nos dados %d + %d = %d%n", dado1, dado2, soma);
 		
 		return soma;
 	}
